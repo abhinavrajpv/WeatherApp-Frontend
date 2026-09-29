@@ -3,7 +3,7 @@ import { cityApi } from "../api";
 import AddCityForm from "./AddCityForm";
 import Banner from "./Banner";
 
-export default function Cities() {
+export default function Cities({ role }) {
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -41,7 +41,7 @@ export default function Cities() {
 
   return (
     <div>
-      <AddCityForm onCityAdded={handleCityAdded} />
+      {role === "ADMIN" && (<AddCityForm onCityAdded={handleCityAdded} />)}
       <div className="section-heading">
         <h2>Saved cities</h2>
       </div>
@@ -59,11 +59,16 @@ export default function Cities() {
               </div>
               <div className="meta">{city.countryCode}</div>
             </div>
-            <div className="actions">
-              <button className="danger" onClick={() => handleDelete(city.id)}>
-                Remove
-              </button>
-            </div>
+            {role === "ADMIN" && (
+                <div className="actions">
+                <button
+                className="danger"
+                 onClick={() => handleDelete(city.id)}
+                  >
+                    Remove
+                    </button>
+                       </div>
+                         )}
           </div>
         ))
       )}

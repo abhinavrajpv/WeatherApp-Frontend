@@ -4,7 +4,7 @@ import Cities from "./Cities";
 import Weather from "./Weather";
 
 export default function Dashboard() {
-  const { username, logout } = useAuth();
+  const { username, role, logout } = useAuth();
   const [activeTab, setActiveTab] = useState("cities");
 
   return (
@@ -36,7 +36,7 @@ export default function Dashboard() {
         </button>
       </nav>
 
-      <main className="content">{activeTab === "cities" ? <Cities /> : <Weather />}</main>
+      <main className="content">{activeTab === "cities" ? (<Cities role={role} />) : (<Weather />)}</main>
     </div>
   );
 }
