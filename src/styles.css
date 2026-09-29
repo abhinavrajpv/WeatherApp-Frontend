@@ -1,0 +1,350 @@
+:root {
+  --ink: #1c2b30;
+  --slate: #4a5e64;
+  --mist: #eef3f2;
+  --paper: #ffffff;
+  --line: #d7e0dd;
+  --deep: #1f4b53;
+  --deep-hover: #163a40;
+  --amber: #e0913f;
+  --amber-hover: #c97a2a;
+  --danger: #b2432f;
+  --radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Top bar ---- */
+.topbar {
+  background: var(--deep);
+  color: var(--mist);
+  padding: 18px 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.topbar .brand {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.topbar .brand span {
+  color: var(--amber);
+}
+
+.topbar .who {
+  font-size: 13px;
+  color: #cfe0df;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--mist);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+/* ---- Layout ---- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 14px 28px 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.tab {
+  border: none;
+  background: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--slate);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: var(--deep);
+  border-bottom-color: var(--amber);
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  padding: 28px;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---- Auth screens ---- */
+.auth-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.auth-card h1 {
+  font-size: 22px;
+  margin: 0 0 4px;
+}
+
+.auth-card .subtitle {
+  color: var(--slate);
+  font-size: 13px;
+  margin: 0 0 24px;
+}
+
+/* ---- Forms ---- */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 14px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--deep);
+  outline-offset: 1px;
+}
+
+button.primary {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--deep);
+  color: var(--mist);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: var(--deep-hover);
+}
+
+button.primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+button.secondary {
+  padding: 8px 14px;
+  background: var(--paper);
+  color: var(--deep);
+  border: 1px solid var(--deep);
+  border-radius: var(--radius);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+button.danger {
+  padding: 6px 12px;
+  background: var(--paper);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.switch-line {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--slate);
+  text-align: center;
+}
+
+.switch-line button {
+  background: none;
+  border: none;
+  color: var(--deep);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+/* ---- Messages ---- */
+.banner {
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.banner.error {
+  background: #fbe9e5;
+  color: var(--danger);
+  border: 1px solid #f0c3b8;
+}
+
+.banner.success {
+  background: #e7f1ea;
+  color: #2c6b45;
+  border: 1px solid #bfdfca;
+}
+
+/* ---- Cities ---- */
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.city-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.city-card .name {
+  font-weight: 600;
+}
+
+.city-card .meta {
+  font-size: 12px;
+  color: var(--slate);
+}
+
+.city-card .actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty {
+  color: var(--slate);
+  font-size: 13px;
+  padding: 20px 0;
+}
+
+.add-city-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.add-city-form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.add-city-form .row .field {
+  flex: 1;
+}
+
+/* ---- Weather panel ---- */
+.weather-result {
+  background: var(--deep);
+  color: var(--mist);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-top: 20px;
+}
+
+.weather-result .place {
+  font-size: 13px;
+  color: #cfe0df;
+  margin-bottom: 4px;
+}
+
+.weather-result .temp {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.weather-result .condition {
+  color: var(--amber);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.weather-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.weather-stats .stat .value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.weather-stats .stat .label {
+  color: #cfe0df;
+}
